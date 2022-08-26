@@ -1,0 +1,22 @@
+[
+    {
+        "status": 400,
+        "errors": [
+            {
+                "code": 400,
+                "message": "string",
+                "details": "string"
+            }
+        ]
+    },
+    {
+        "status": 429,
+        "errors": [
+            {
+                "code": 429,
+                "message": "string",
+                "details": "string"
+            }
+        ]
+    }
+]

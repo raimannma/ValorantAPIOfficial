@@ -1,0 +1,124 @@
+[build-system]
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "valo_api"
+version = "1.3.3"
+description = "Valorant API Wrapper for https://github.com/Henrik-3/unofficial-valorant-api"
+readme = "README.md"
+authors = ["Manuel Raimann <raimannma@outlook.de>"]
+license = "MIT"
+repository = "https://github.com/raimannma/ValorantAPI"
+homepage = "https://github.com/raimannma/ValorantAPI"
+
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+]
+
+[tool.poetry.scripts]
+"valo_api" = "valo_api.__main__:app"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.28.1"
+Pillow = "^9.2.0"
+
+[tool.poetry.dev-dependencies]
+bandit = "^1.7.4"
+black = {version = "^22.6.0", allow-prereleases = true}
+darglint = "^1.8.1"
+isort = {extras = ["colors"], version = "^5.10.1"}
+mypy = "^0.971"
+mypy-extensions = "^0.4.3"
+pre-commit = "^2.20.0"
+pydocstyle = "^6.1.1"
+pylint = "^2.14.5"
+pytest = "^7.1.2"
+hypothesis = "^6.54.4"
+pyupgrade = "^2.37.3"
+safety = "^2.1.1"
+pytest-html = "^3.1.1"
+pytest-cov = "^3.0.0"
+Sphinx = "^5.1.1"
+sphinxcontrib-applehelp = "^1.0.2"
+sphinxcontrib-devhelp = "^1.0.2"
+sphinxcontrib-htmlhelp = "^2.0.0"
+sphinxcontrib-jsmath = "^1.0.1"
+sphinxcontrib-qthelp = "^1.0.3"
+sphinxcontrib-serializinghtml = "^1.1.5"
+sphinx-rtd-theme = "^1.0.0"
+sphinx-autodoc-typehints = "^1.19.0"
+autodocsumm = "^0.2.8"
+responses = "^0.21.0"
+pytest-parallel = "^0.1.1"
+pytest-split = "^0.8.0"
+tomlkit = "<0.11.5"
+colorama = "^0.4.5"
+
+
+[tool.black]
+target-version = ["py38"]
+line-length = 88
+color = true
+
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | env
+    | venv
+)/
+'''
+
+[tool.isort]
+py_version = 38
+line_length = 88
+
+known_typing = ["typing", "types", "typing_extensions", "mypy", "mypy_extensions"]
+sections = ["FUTURE", "TYPING", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+include_trailing_comma = true
+profile = "black"
+multi_line_output = 3
+indent = 4
+color_output = true
+
+
+[tool.pytest.ini_options]
+norecursedirs =["hooks", "*.egg", ".eggs", "dist", "build", "docs", ".tox", ".git", "__pycache__"]
+doctest_optionflags = ["NUMBER", "NORMALIZE_WHITESPACE", "IGNORE_EXCEPTION_DETAIL"]
+
+addopts = [
+  "--strict-markers",
+  "--tb=short",
+  "--doctest-modules",
+  "--doctest-continue-on-failure",
+]
+
+[tool.coverage.run]
+source = ["tests"]
+
+[coverage.paths]
+source = "valo_api"
+
+[coverage.run]
+branch = true
+
+[coverage.report]
+fail_under = 50
+show_missing = true
