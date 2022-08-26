@@ -4,7 +4,7 @@ PYTHON := python
 PYTHONPATH := `pwd`
 
 #* Docker variables
-IMAGE := valo_api
+IMAGE := valo_api_official_official
 VERSION := latest
 
 #* Poetry
@@ -40,21 +40,16 @@ formatting: codestyle
 .PHONY: test
 test:
 	make test-unit
-	make test-e2e
 
 .PHONY: test-unit
 test-unit:
-	PYTHONPATH=$(PYTHONPATH) poetry run pytest -c pyproject.toml -x --workers auto --cov-report=html --cov-report xml --cov=valo_api tests/unit
-
-.PHONY: test-e2e
-test-e2e:
-	PYTHONPATH=$(PYTHONPATH) poetry run pytest -c pyproject.toml -x --workers 1 --cov-report=html --cov-report xml --cov=valo_api tests/e2e
+	PYTHONPATH=$(PYTHONPATH) poetry run pytest -c pyproject.toml -x --workers auto --cov-report=html --cov-report xml --cov=valo_api_official tests/unit
 
 .PHONY: check-codestyle
 check-codestyle:
 	poetry run isort --diff --check-only --settings-path pyproject.toml ./
 	poetry run black --diff --check --config pyproject.toml ./
-	poetry run darglint --verbosity 2 valo_api tests
+	poetry run darglint --verbosity 2 valo_api_official tests
 
 .PHONY: docs-build
 docs-build:
@@ -65,7 +60,7 @@ docs-build:
 check-safety:
 	poetry check
 	poetry run safety check --full-report
-	poetry run bandit -ll --recursive valo_api tests
+	poetry run bandit -ll --recursive valo_api_official tests
 
 .PHONY: lint
 lint: test check-codestyle check-safety

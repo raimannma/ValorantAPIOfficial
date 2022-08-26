@@ -1,31 +1,27 @@
 import urllib.parse
 
-import pytest
 import responses
 from hypothesis import given, settings
 from hypothesis import strategies as st
 
-import valo_api
-from tests.unit.endpoints.utils import (
-    get_error_responses,
-    get_mock_response,
-    validate_exception,
-)
-from valo_api.config import Config
-from valo_api.exceptions.valo_api_exception import ValoAPIException
+import valo_api_official
+from tests.unit.endpoints.utils import generate_act_ids, get_mock_response
+from valo_api_official.config import Config
 
 
 @settings(deadline=None)
 @given(
-    version=st.sampled_from(["v1", "v2"]), region=st.sampled_from(Config.ALL_REGIONS)
+    version=st.sampled_from(["v1"]),
+    region=st.sampled_from(Config.ALL_REGIONS),
+    act_id=st.sampled_from(list(generate_act_ids())),
 )
 @responses.activate
-def test_get_leaderboard(version: str, region: str):
+def test_get_leaderboard(version: str, region: str, act_id: str):
     print(f"Test get_leaderboard with: {locals()}")
 
     encoded_region = urllib.parse.quote_plus(region).lower()
 
-    url = f"{Config.BASE_URL}/valorant/{version}/leaderboard/{encoded_region}"
+    url = f"https://{region}.api.riotgames.com/val/ranked/{version}/leaderboards/by-act/{act_id}"
 
     responses.add(
         responses.GET,
@@ -34,44 +30,16 @@ def test_get_leaderboard(version: str, region: str):
         status=200,
     )
 
-    getattr(valo_api, f"get_leaderboard_{version}")(region=region)
-    assert len(responses.calls) == 1
-
-    getattr(valo_api, "get_leaderboard")(version=version, region=region)
-    assert len(responses.calls) == 2
-
-
-@given(
-    version=st.sampled_from(["v1", "v2"]),
-    region=st.sampled_from(Config.ALL_REGIONS),
-    error_response=st.sampled_from(get_error_responses("leaderboard")),
-)
-@responses.activate
-def test_get_leaderboard_error(version: str, region: str, error_response: dict):
-    print(f"Test test_get_leaderboard_error with: {locals()}")
-
-    encoded_region = urllib.parse.quote_plus(region).lower()
-
-    url = f"{Config.BASE_URL}/valorant/{version}/leaderboard/{encoded_region}"
-
-    responses.add(
-        responses.GET,
-        url,
-        json=error_response,
-        status=int(error_response["status"]) if "status" in error_response else 500,
+    getattr(valo_api_official, f"get_leaderboard_{version}")(
+        region=region, act_id=act_id
     )
-
-    with pytest.raises(ValoAPIException) as excinfo:
-        getattr(valo_api, f"get_leaderboard_{version}")(region=region)
     assert len(responses.calls) == 1
-    validate_exception(error_response, excinfo)
 
-    with pytest.raises(ValoAPIException) as excinfo:
-        getattr(valo_api, "get_leaderboard")(version=version, region=region)
+    getattr(valo_api_official, "get_leaderboard")(
+        version=version, region=region, act_id=act_id
+    )
     assert len(responses.calls) == 2
-    validate_exception(error_response, excinfo)
 
 
 if __name__ == "__main__":
     test_get_leaderboard()
-    test_get_leaderboard_error()
