@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Build status](https://github.com/raimannma/ValorantAPIOfficial/workflows/build/badge.svg?branch=master&event=push)](https://github.com/raimannma/ValorantAPIOfficial/actions?query=workflow%3Abuild)
-[![Python Version](https://img.shields.io/pypi/pyversions/valo_api_official.svg)](https://pypi.org/project/valo_api/)
+[![Python Version](https://img.shields.io/pypi/pyversions/valo_api_official.svg)](https://pypi.org/project/valo_api_official/)
 [![Dependencies Status](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/raimannma/ValorantAPI/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aapp%2Fdependabot)
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
