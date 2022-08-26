@@ -21,7 +21,7 @@ Valorant API Wrapper
 
 ## Installation
 
-    pip install valo-api
+    pip install valo-api-official
 
 ## Documentation
 
