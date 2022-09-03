@@ -1,7 +1,7 @@
 class RateLimit:
-    limit: int = -1
+    limit: str
     """The number of requests you can make in the current period."""
-    count: int = -1
+    count: str
     """The number of requests you did in the current period."""
 
     def __str__(self) -> str:
