@@ -1,15 +1,12 @@
 import urllib.parse
 
-import pytest
 import responses
 from hypothesis import given
 from hypothesis import strategies as st
-from responses import matchers
 
 import valo_api_official
 from tests.unit.endpoints.utils import get_mock_response
 from valo_api_official.config import Config
-from valo_api_official.exceptions.valo_api_exception import ValoAPIException
 
 
 @given(
