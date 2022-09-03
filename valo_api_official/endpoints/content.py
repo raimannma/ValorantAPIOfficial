@@ -50,7 +50,9 @@ def get_content(version: str, locale: Optional[str] = None, **kwargs) -> Content
     if response.ok is False:
         headers = dict(response.headers)
         raise ValoAPIException(
-            ErrorResponse.from_dict(headers=headers, **{"error": response_data})
+            ErrorResponse.from_dict(
+                headers=headers, **{"error": response_data["status"]}
+            )
         )
 
     return ContentV1.from_dict(**response_data)

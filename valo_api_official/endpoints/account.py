@@ -51,7 +51,9 @@ def get_account_by_name(version: str, name: str, tag: str, **kwargs) -> AccountV
     if response.ok is False:
         headers = dict(response.headers)
         raise ValoAPIException(
-            ErrorResponse.from_dict(headers=headers, **{"error": response_data})
+            ErrorResponse.from_dict(
+                headers=headers, **{"error": response_data["status"]}
+            )
         )
 
     return AccountV1.from_dict(**response_data)
@@ -100,7 +102,9 @@ def get_account_by_puuid(version: str, puuid: str, **kwargs) -> AccountV1:
     if response.ok is False:
         headers = dict(response.headers)
         raise ValoAPIException(
-            ErrorResponse.from_dict(headers=headers, **{"error": response_data})
+            ErrorResponse.from_dict(
+                headers=headers, **{"error": response_data["status"]}
+            )
         )
 
     return AccountV1.from_dict(**response_data)
