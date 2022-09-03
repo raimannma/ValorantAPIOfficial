@@ -71,6 +71,9 @@ def get_leaderboard(
     if size is not None:
         query_args["size"] = start
 
+    if region == "europe":
+        region = "eu"
+
     response = fetch_endpoint(
         EndpointsConfig.LEADERBOARD,
         region=region,

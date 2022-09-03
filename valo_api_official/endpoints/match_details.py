@@ -45,6 +45,9 @@ def get_match_details(
     Raises:
         ValoAPIException: If the request failed.
     """
+    if region == "europe":
+        region = "eu"
+
     response = fetch_endpoint(
         EndpointsConfig.MATCH_DETAILS,
         version=version,

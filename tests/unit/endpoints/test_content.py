@@ -16,7 +16,7 @@ def test_get_content(version: str, locale: str):
 
     locale = str(locale)
 
-    url = f"https://{Config.NEAREST_CLUSTER}.api.riotgames.com/val/content/{version}/contents"
+    url = f"https://{Config.NEAREST_CLUSTER_SHORT}.api.riotgames.com/val/content/{version}/contents"
     params = {"locale": locale}
 
     responses.add(

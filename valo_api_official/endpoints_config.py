@@ -17,7 +17,7 @@ class EndpointsConfig:
     )
 
     CONTENT = (
-        f"https://{Config.NEAREST_CLUSTER}.api.riotgames.com/val/content/"
+        f"https://{Config.NEAREST_CLUSTER_SHORT}.api.riotgames.com/val/content/"
         "{version}/contents"
     )
 
