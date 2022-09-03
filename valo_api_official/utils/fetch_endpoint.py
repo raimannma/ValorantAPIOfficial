@@ -70,8 +70,6 @@ def fetch_endpoint(
         headers["X-Riot-Token"] = os.environ["VALO_API_OFFICIAL_KEY"]
 
     # Make the request
-    print(url)
-    print(encoded_params)
     response = fetch_endpoint.session.request(
         method, url, params=query_args, json=query_args, headers=headers
     )
