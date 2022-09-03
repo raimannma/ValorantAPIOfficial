@@ -69,7 +69,7 @@ def get_leaderboard(
     if start is not None:
         query_args["start"] = start
     if size is not None:
-        query_args["size"] = start
+        query_args["size"] = size
 
     if region == "europe":
         region = "eu"
