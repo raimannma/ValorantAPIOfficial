@@ -4,6 +4,10 @@ from valo_api_official.endpoints.account import (
     get_account_by_puuid,
     get_account_by_puuid_v1,
 )
+from valo_api_official.endpoints.active_shards import (
+    get_active_shards,
+    get_active_shards_v1,
+)
 from valo_api_official.endpoints.content import get_content, get_content_v1
 from valo_api_official.endpoints.leaderboard import get_leaderboard, get_leaderboard_v1
 from valo_api_official.endpoints.match_details import (
@@ -21,6 +25,8 @@ __all__ = [
     "get_account_by_name",
     "get_account_by_puuid_v1",
     "get_account_by_puuid",
+    "get_active_shards_v1",
+    "get_active_shards",
     "get_content_v1",
     "get_content",
     "get_leaderboard_v1",
