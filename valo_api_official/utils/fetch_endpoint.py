@@ -63,7 +63,10 @@ def fetch_endpoint(
         "User-Agent": Config.USER_AGENT,
         "Accept": "application/json",
     }
-    if "VALO_API_OFFICIAL_KEY" in os.environ and os.environ["X-Riot-Token"] is not None:
+    if (
+        "VALO_API_OFFICIAL_KEY" in os.environ
+        and os.environ["VALO_API_OFFICIAL_KEY"] is not None
+    ):
         headers["X-Riot-Token"] = os.environ["VALO_API_OFFICIAL_KEY"]
 
     # Make the request
