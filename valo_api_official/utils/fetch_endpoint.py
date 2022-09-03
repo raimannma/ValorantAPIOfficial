@@ -74,8 +74,8 @@ def fetch_endpoint(
         method, url, params=query_args, json=query_args, headers=headers
     )
     RateLimit.limit, RateLimit.count = (
-        int(response.headers.get("X-Method-Rate-Limit", -1)),
-        int(response.headers.get("X-Method-Rate-Limit-Count", -1)),
+        response.headers.get("X-Method-Rate-Limit", -1),
+        response.headers.get("X-Method-Rate-Limit-Count", -1),
     )
 
     return response
