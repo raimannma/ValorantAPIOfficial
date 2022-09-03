@@ -18,8 +18,8 @@ from valo_api_official.config import Config
 def test_get_account_by_name(version: str, name: str, tag: str):
     print(f"Test get_account_by_name with: {locals()}")
 
-    encoded_name = urllib.parse.quote_plus(name).lower()
-    encoded_tag = urllib.parse.quote_plus(tag).lower()
+    encoded_name = urllib.parse.quote_plus(name)
+    encoded_tag = urllib.parse.quote_plus(tag)
 
     url = f"https://{Config.NEAREST_CLUSTER}.api.riotgames.com/riot/account/{version}/accounts/by-riot-id/{encoded_name}/{encoded_tag}"
 
