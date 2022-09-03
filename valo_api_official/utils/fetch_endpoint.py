@@ -50,13 +50,12 @@ def fetch_endpoint(
         else requests.Session()
     )
 
-    url = url.lower()
     encoded_params = encode_params(**kwargs)
 
     # Build the URL
     # First Replace the parameters in the endpoint definition
     for key, value in encoded_params.items():
-        url = url.replace(f"{{{key.lower()}}}", value.lower())
+        url = url.replace(f"{{{key}}}", value)
 
     # Set the headers
     headers = {

@@ -20,7 +20,7 @@ def test_get_match_details(version: str, region: str, match_id: UUID):
     print(f"Test get_match_details with: {locals()}")
 
     match_id = str(match_id)
-    encoded_match_id = urllib.parse.quote_plus(match_id).lower()
+    encoded_match_id = urllib.parse.quote_plus(match_id)
 
     url = f"https://{region}.api.riotgames.com/val/match/{version}/matches/{match_id}"
 

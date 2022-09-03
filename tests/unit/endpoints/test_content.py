@@ -14,7 +14,7 @@ from valo_api_official.config import Config
 def test_get_content(version: str, locale: str):
     print(f"Test get_content with: {locals()}")
 
-    locale = str(locale).lower()
+    locale = str(locale)
 
     url = f"https://{Config.NEAREST_CLUSTER}.api.riotgames.com/val/content/{version}/contents"
     params = {"locale": locale}

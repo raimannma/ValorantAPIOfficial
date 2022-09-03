@@ -42,7 +42,7 @@ def get_content(version: str, locale: Optional[str] = None, **kwargs) -> Content
     response = fetch_endpoint(
         EndpointsConfig.CONTENT,
         version=version,
-        query_args={"locale": str(locale).lower()} if locale else None,
+        query_args={"locale": str(locale)} if locale else None,
         **kwargs,
     )
     response_data = response.json()

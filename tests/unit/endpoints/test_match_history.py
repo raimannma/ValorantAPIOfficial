@@ -26,7 +26,7 @@ from valo_api_official.config import Config
 def test_get_match_history(version: str, region: str, puuid: UUID, size: Optional[int]):
     print(f"Test get_match_history with: {locals()}")
 
-    puuid = str(puuid).lower()
+    puuid = str(puuid)
 
     url = f"https://{region}.api.riotgames.com/val/match/{version}/matchlists/by-puuid/{puuid}"
 

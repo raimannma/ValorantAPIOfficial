@@ -21,7 +21,7 @@ from valo_api_official.config import Config
 def test_get_active_shards(version: str, puuid: str):
     print(f"Test test_get_active_shards with: {locals()}")
 
-    encoded_puuid = urllib.parse.quote_plus(puuid).lower()
+    encoded_puuid = urllib.parse.quote_plus(puuid)
 
     url = f"https://{Config.NEAREST_CLUSTER}.api.riotgames.com/riot/account/{version}/active-shards/by-game/val/by-puuid/{encoded_puuid}"
 

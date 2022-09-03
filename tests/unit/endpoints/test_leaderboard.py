@@ -19,7 +19,7 @@ from valo_api_official.config import Config
 def test_get_leaderboard(version: str, region: str, act_id: str):
     print(f"Test get_leaderboard with: {locals()}")
 
-    encoded_region = urllib.parse.quote_plus(region).lower()
+    encoded_region = urllib.parse.quote_plus(region)
 
     url = f"https://{region}.api.riotgames.com/val/ranked/{version}/leaderboards/by-act/{act_id}"
 
