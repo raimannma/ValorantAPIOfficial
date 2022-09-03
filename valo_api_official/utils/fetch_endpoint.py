@@ -1,7 +1,6 @@
 from typing import Any, Dict, Optional
 
 import os
-import time
 import urllib.parse
 
 import requests
