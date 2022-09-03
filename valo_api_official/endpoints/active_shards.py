@@ -49,7 +49,9 @@ def get_active_shards(version: str, puuid: str, **kwargs) -> ActiveShardsV1:
     if response.ok is False:
         headers = dict(response.headers)
         raise ValoAPIException(
-            ErrorResponse.from_dict(headers=headers, **{"error": response_data})
+            ErrorResponse.from_dict(
+                headers=headers, **{"error": response_data["status"]}
+            )
         )
 
     return ActiveShardsV1.from_dict(**response_data)
