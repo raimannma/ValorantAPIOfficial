@@ -11,6 +11,11 @@ class EndpointsConfig:
         "{version}/accounts/by-riot-id/{name}/{tag}"
     )
 
+    ACTIVE_SHARDS = (
+        f"https://{Config.NEAREST_CLUSTER}.api.riotgames.com/riot/account/"
+        "{version}/active-shards/by-game/{game}/by-puuid/{puuid}"
+    )
+
     CONTENT = (
         f"https://{Config.NEAREST_CLUSTER}.api.riotgames.com/val/content/"
         "{version}/contents"
