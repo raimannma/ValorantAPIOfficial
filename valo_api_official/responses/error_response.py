@@ -13,11 +13,8 @@ class Error(InitOptions):
 
 @dataclass
 class ErrorResponse(InitOptions):
-    error: Optional[List[Error]] = None
+    headers: Optional[dict] = None
+    error: Optional[Error] = None
 
     def __post_init__(self):
-        self.errors = (
-            [Error.from_dict(**e) for e in self.error]
-            if self.error is not None
-            else None
-        )
+        self.error = Error.from_dict(**self.error) if self.error is not None else None

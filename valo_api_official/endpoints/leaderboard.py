@@ -84,7 +84,9 @@ def get_leaderboard(
     if response.ok is False:
         headers = dict(response.headers)
         raise ValoAPIException(
-            ErrorResponse.from_dict(headers=headers, **{"error": response_data})
+            ErrorResponse.from_dict(
+                headers=headers, **{"error": response_data["status"]}
+            )
         )
 
     return LeaderboardV1.from_dict(**response_data)

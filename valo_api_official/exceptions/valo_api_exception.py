@@ -22,9 +22,9 @@ class ValoAPIException(Exception):
             The error message as string.
         """
         if not isinstance(self.response, ErrorResponse):
-            return self.response
+            return str(self.response)
 
-        return f"Errors: {', '.join([e.message for e in self.response.error])}"
+        return self.response.error.message
 
     @property
     def status(self) -> Optional[str]:
@@ -36,7 +36,7 @@ class ValoAPIException(Exception):
         """
         if not isinstance(self.response, ErrorResponse):
             return None
-        return ", ".join([str(e.status_code) for e in self.response.error])
+        return self.response.error.status_code
 
     @property
     def message(self) -> Optional[str]:
@@ -48,10 +48,10 @@ class ValoAPIException(Exception):
         """
         if not isinstance(self.response, ErrorResponse):
             return None
-        return ", ".join([e.message for e in self.response.error])
+        return self.response.error.message
 
     @property
-    def errors(self) -> Optional[List[Error]]:
+    def errors(self) -> Optional[Error]:
         """
         Return the error code of the response.
 

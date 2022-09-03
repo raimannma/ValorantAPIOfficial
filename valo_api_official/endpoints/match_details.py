@@ -57,7 +57,9 @@ def get_match_details(
     if response.ok is False:
         headers = dict(response.headers)
         raise ValoAPIException(
-            ErrorResponse.from_dict(headers=headers, **{"error": response_data})
+            ErrorResponse.from_dict(
+                headers=headers, **{"error": response_data["status"]}
+            )
         )
 
     return MatchDetailsV1.from_dict(**response_data)

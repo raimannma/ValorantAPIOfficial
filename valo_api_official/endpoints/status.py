@@ -52,7 +52,9 @@ def get_status(version: str, region: str, **kwargs) -> StatusV1:
     if response.ok is False:
         headers = dict(response.headers)
         raise ValoAPIException(
-            ErrorResponse.from_dict(headers=headers, **{"error": response_data})
+            ErrorResponse.from_dict(
+                headers=headers, **{"error": response_data["status"]}
+            )
         )
 
     return StatusV1.from_dict(**response_data)
