@@ -67,7 +67,7 @@ def get_leaderboard(
     """
     query_args = dict()
     if start is not None:
-        query_args["start"] = start
+        query_args["startIndex"] = start
     if size is not None:
         query_args["size"] = size
 
