@@ -2,27 +2,11 @@ from typing import List
 
 
 class Config:
-    NEAREST_CLUSTER = "europe"
-    NEAREST_CLUSTER_SHORT = "eu"
+    NEAREST_CLUSTER: str = "europe"
+    NEAREST_CLUSTER_SHORT: str = "eu"
     USER_AGENT: str = "Python Valorant API Wrapper"
-    BASE_URL: str = "https://api.henrikdev.xyz"
     ALL_REGIONS: List[str] = ["eu", "na", "ap", "kr", "latam", "br"]
-    ALL_COUNTRY_CODES = [
-        "en-us",
-        "en-gb",
-        "de-de",
-        "es-es",
-        "fr-fr",
-        "it-it",
-        "ru-ru",
-        "tr-tr",
-        "es-mx",
-        "ja-jp",
-        "ko-kr",
-        "pt-br",
-        "vi-vn",
-    ]
-    ALL_LOCALS = [
+    ALL_LOCALS: List[str] = [
         "ar-AE",
         "de-DE",
         "en-US",
