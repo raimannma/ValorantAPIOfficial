@@ -17,7 +17,7 @@ class MatchInfo(InitOptions):
     gameMode: str
     isRanked: bool
     seasonId: str
-    queueID: Optional[str] = None
+    queueId: Optional[str] = None
     provisioningFlowID: Optional[str] = None
 
 
