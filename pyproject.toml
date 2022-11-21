@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "valo_api_official"
-version = "0.0.10"
+version = "0.0.11"
 description = "Valorant API Wrapper"
 readme = "README.md"
 authors = ["Manuel Raimann <raimannma@outlook.de>"]
