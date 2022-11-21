@@ -31,6 +31,7 @@ class EndpointsConfig:
         "https://{region}.api.riotgames.com/val/match/{version}/matches/{match_id}"
     )
     MATCH_HISTORY = "https://{region}.api.riotgames.com/val/match/{version}/matchlists/by-puuid/{puuid}"
+    RECENT_MATCHES = "https://{region}.api.riotgames.com/val/match/{version}/recent-matches/by-queue/{queue}"
 
     RAW = "/valorant/{version}/raw"
     STORE_FEATURED = "/valorant/{version}/store-featured"
