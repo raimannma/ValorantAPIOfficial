@@ -505,7 +505,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "pydocstyle"
-version = "6.2.0"
+version = "6.2.2"
 description = "Python docstring style checker"
 category = "dev"
 optional = false
@@ -515,7 +515,7 @@ python-versions = ">=3.6"
 snowballstemmer = ">=2.2.0"
 
 [package.extras]
-toml = ["toml (>=0.10.2)"]
+toml = ["tomli (>=1.2.3)"]
 
 [[package]]
 name = "pygments"
@@ -1043,7 +1043,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "713177ab9c003e2f1beb92a99db930c65b368bd2ba95475a1973e04f82fbf6e4"
+content-hash = "8072067a15be72c2ec6cb57dc1b7e4c6044995d1945eb78a158208cc117839de"
 
 [metadata.files]
 alabaster = [
@@ -1361,8 +1361,8 @@ py = [
     {file = "py-1.11.0.tar.gz", hash = "sha256:51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"},
 ]
 pydocstyle = [
-    {file = "pydocstyle-6.2.0-py3-none-any.whl", hash = "sha256:39573fa08919ac492b063724af39a1afdcfea8cdaa2c7b8018ca0dfff5d7e36f"},
-    {file = "pydocstyle-6.2.0.tar.gz", hash = "sha256:b2d280501a4c0d9feeb96e9171dc3f6f7d0064c55270f4c7b1baa18452019fd9"},
+    {file = "pydocstyle-6.2.2-py3-none-any.whl", hash = "sha256:021b33525927b43b4469c2715694c38082cb98146b52342df652b30806e3cb61"},
+    {file = "pydocstyle-6.2.2.tar.gz", hash = "sha256:5714e3a96f6ece848a1c35f581e89f3164867733609f0dd8a99f7e7c6b526bdd"},
 ]
 pygments = [
     {file = "Pygments-2.14.0-py3-none-any.whl", hash = "sha256:fa7bd7bd2771287c0de303af8bfdfc731f51bd2c6a47ab69d117138893b82717"},
