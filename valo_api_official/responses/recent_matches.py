@@ -1,11 +1,8 @@
 from typing import List
 
-from dataclasses import dataclass
-
-from valo_api_official.utils.init_options import InitOptions
+from msgspec import Struct
 
 
-@dataclass
-class RecentMatchesV1(InitOptions):
+class RecentMatchesV1(Struct):
     currentTime: int
     matchIds: List[str]

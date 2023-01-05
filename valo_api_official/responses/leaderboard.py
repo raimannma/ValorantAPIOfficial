@@ -1,12 +1,9 @@
 from typing import Dict, List, Optional
 
-from dataclasses import dataclass
-
-from valo_api_official.utils.init_options import InitOptions
+from msgspec import Struct
 
 
-@dataclass
-class LeaderboardPlayerV1(InitOptions):
+class LeaderboardPlayerV1(Struct):
     leaderboardRank: int
     rankedRating: int
     numberOfWins: int
@@ -16,15 +13,13 @@ class LeaderboardPlayerV1(InitOptions):
     tagLine: Optional[str] = None
 
 
-@dataclass
-class TierDetail(InitOptions):
+class TierDetail(Struct):
     rankedRatingThreshold: int
     startingPage: int
     startingIndex: int
 
 
-@dataclass
-class LeaderboardV1(InitOptions):
+class LeaderboardV1(Struct):
     actId: str
     players: List[LeaderboardPlayerV1]
     totalPlayers: int
@@ -35,14 +30,3 @@ class LeaderboardV1(InitOptions):
     startIndex: int
     query: str
     shard: str
-
-    def __post_init__(self):
-        self.players = [
-            LeaderboardPlayerV1.from_dict(**player)
-            for player in self.players
-            if player is not None
-        ]
-        self.tierDetails = {
-            tier: TierDetail.from_dict(**details)
-            for tier, details in self.tierDetails.items()
-        }

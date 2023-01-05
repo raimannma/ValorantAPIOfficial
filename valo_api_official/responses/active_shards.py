@@ -1,10 +1,7 @@
-from dataclasses import dataclass
-
-from valo_api_official.utils.init_options import InitOptions
+from msgspec import Struct
 
 
-@dataclass
-class ActiveShardsV1(InitOptions):
+class ActiveShardsV1(Struct):
     puuid: str
     game: str
     activeShard: str

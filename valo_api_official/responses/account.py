@@ -1,10 +1,7 @@
-from dataclasses import dataclass
-
-from valo_api_official.utils.init_options import InitOptions
+from msgspec import Struct
 
 
-@dataclass
-class AccountV1(InitOptions):
+class AccountV1(Struct):
     puuid: str
     gameName: str
     tagLine: str

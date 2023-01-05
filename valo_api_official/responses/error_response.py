@@ -1,20 +1,13 @@
-from typing import List, Optional
+from typing import Optional
 
-from dataclasses import dataclass
-
-from valo_api_official.utils.init_options import InitOptions
+from msgspec import Struct
 
 
-@dataclass
-class Error(InitOptions):
+class Error(Struct):
     message: Optional[str] = None
     status_code: Optional[int] = None
 
 
-@dataclass
-class ErrorResponse(InitOptions):
+class ErrorResponse(Struct):
     headers: Optional[dict] = None
     error: Optional[Error] = None
-
-    def __post_init__(self):
-        self.error = Error.from_dict(**self.error) if self.error is not None else None
