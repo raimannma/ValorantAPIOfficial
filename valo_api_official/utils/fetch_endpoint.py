@@ -1,10 +1,9 @@
-from typing import Any, Dict, Optional, Type, TypeVar
+from typing import Any, Dict, Optional
 
 import os
 import urllib.parse
 
 import requests
-from msgspec import Struct
 from requests import Response
 
 from valo_api_official.config import Config

@@ -1,4 +1,4 @@
-from typing import List, Optional, Union
+from typing import Optional, Union
 
 from valo_api_official.exceptions.rate_limit import RateLimit
 from valo_api_official.responses.error_response import Error, ErrorResponse
