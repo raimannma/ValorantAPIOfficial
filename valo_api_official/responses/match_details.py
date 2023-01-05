@@ -1,12 +1,9 @@
 from typing import List, Optional
 
-from dataclasses import dataclass
-
-from valo_api_official.utils.init_options import InitOptions
+from msgspec import Struct
 
 
-@dataclass
-class MatchInfo(InitOptions):
+class MatchInfo(Struct):
     matchId: str
     mapId: str
     gameVersion: str
@@ -21,16 +18,14 @@ class MatchInfo(InitOptions):
     provisioningFlowID: Optional[str] = None
 
 
-@dataclass
-class PlayerAbilityCasts(InitOptions):
+class PlayerAbilityCasts(Struct):
     grenadeCasts: int
     ability1Casts: int
     ability2Casts: int
     ultimateCasts: int
 
 
-@dataclass
-class PlayerStats(InitOptions):
+class PlayerStats(Struct):
     score: int
     roundsPlayed: int
     kills: int
@@ -39,16 +34,8 @@ class PlayerStats(InitOptions):
     playtimeMillis: int
     abilityCasts: Optional[PlayerAbilityCasts] = None
 
-    def __post_init__(self):
-        self.abilityCasts = (
-            PlayerAbilityCasts.from_dict(**self.abilityCasts)
-            if self.abilityCasts is not None
-            else None
-        )
 
-
-@dataclass
-class MatchPlayers(InitOptions):
+class MatchPlayers(Struct):
     puuid: str
     gameName: str
     tagLine: str
@@ -60,12 +47,8 @@ class MatchPlayers(InitOptions):
     playerCard: str
     playerTitle: str
 
-    def __post_init__(self):
-        self.stats = PlayerStats.from_dict(**self.stats)
 
-
-@dataclass
-class MatchTeam(InitOptions):
+class MatchTeam(Struct):
     teamId: str
     won: bool
     roundsPlayed: int
@@ -73,31 +56,24 @@ class MatchTeam(InitOptions):
     numPoints: int
 
 
-@dataclass
-class Location(InitOptions):
+class Location(Struct):
     x: int
     y: int
 
 
-@dataclass
-class PlayerLocations(InitOptions):
+class PlayerLocations(Struct):
     puuid: str
     viewRadians: float
     location: Location
 
-    def __post_init__(self):
-        self.location = Location.from_dict(**self.location)
 
-
-@dataclass
-class KillFinishingDamage(InitOptions):
+class KillFinishingDamage(Struct):
     damageType: str
     damageItem: str
     isSecondaryFireMode: bool
 
 
-@dataclass
-class PlayerKills(InitOptions):
+class PlayerKills(Struct):
     timeSinceGameStartMillis: int
     timeSinceRoundStartMillis: int
     killer: str
@@ -107,16 +83,8 @@ class PlayerKills(InitOptions):
     playerLocations: List[PlayerLocations]
     finishingDamage: KillFinishingDamage
 
-    def __post_init__(self):
-        self.victimLocation = Location.from_dict(**self.victimLocation)
-        self.playerLocations = [
-            PlayerLocations.from_dict(**x) for x in self.playerLocations
-        ]
-        self.finishingDamage = KillFinishingDamage.from_dict(**self.finishingDamage)
 
-
-@dataclass
-class PlayerDamage(InitOptions):
+class PlayerDamage(Struct):
     receiver: str
     damage: int
     legshots: int
@@ -124,8 +92,7 @@ class PlayerDamage(InitOptions):
     headshots: int
 
 
-@dataclass
-class PlayerEconomy(InitOptions):
+class PlayerEconomy(Struct):
     loadoutValue: int
     weapon: str
     armor: str
@@ -133,16 +100,14 @@ class PlayerEconomy(InitOptions):
     spent: int
 
 
-@dataclass
-class PlayerAbilityEffects(InitOptions):
+class PlayerAbilityEffects(Struct):
     grenadeEffects: Optional[dict]
     ability1Effects: Optional[dict]
     ability2Effects: Optional[dict]
     ultimateEffects: Optional[dict]
 
 
-@dataclass
-class RoundPlayerStats(InitOptions):
+class RoundPlayerStats(Struct):
     puuid: str
     kills: List[PlayerKills]
     damage: List[PlayerDamage]
@@ -150,57 +115,28 @@ class RoundPlayerStats(InitOptions):
     economy: PlayerEconomy
     ability: PlayerAbilityEffects
 
-    def __post_init__(self):
-        self.kills = [PlayerKills.from_dict(**x) for x in self.kills]
-        self.damage = [PlayerDamage.from_dict(**x) for x in self.damage]
-        self.economy = PlayerEconomy.from_dict(**self.economy)
-        self.ability = PlayerAbilityEffects.from_dict(**self.ability)
 
-
-@dataclass
-class MatchRoundResults(InitOptions):
+class MatchRoundResults(Struct):
     roundNum: int
     roundResult: str
     roundCeremony: str
     winningTeam: str
-    bombPlanter: str
-    bombDefuser: str
     plantRoundTime: int
-    plantPlayerLocations: List[PlayerLocations]
     plantLocation: Location
     plantSite: str
     defuseRoundTime: int
-    defusePlayerLocations: List[PlayerLocations]
     defuseLocation: Location
     playerStats: List[RoundPlayerStats]
     roundResultCode: str
-
-    def __post_init__(self):
-        self.plantPlayerLocations = [
-            PlayerLocations.from_dict(**x) for x in self.plantPlayerLocations or []
-        ]
-        self.plantLocation = Location.from_dict(**self.plantLocation)
-        self.defusePlayerLocations = [
-            PlayerLocations.from_dict(**x) for x in self.defusePlayerLocations or []
-        ]
-        self.defuseLocation = Location.from_dict(**self.defuseLocation)
-        self.playerStats = [RoundPlayerStats.from_dict(**x) for x in self.playerStats]
+    bombPlanter: Optional[str] = None
+    bombDefuser: Optional[str] = None
+    plantPlayerLocations: Optional[List[PlayerLocations]] = None
+    defusePlayerLocations: Optional[List[PlayerLocations]] = None
 
 
-@dataclass
-class MatchDetailsV1(InitOptions):
+class MatchDetailsV1(Struct):
     matchInfo: MatchInfo
     players: List[MatchPlayers]
     coaches: List[dict]
     teams: List[MatchTeam]
     roundResults: Optional[List[MatchRoundResults]]
-
-    def __post_init__(self):
-        self.matchInfo = MatchInfo.from_dict(**self.matchInfo)
-        self.players = [MatchPlayers.from_dict(**p) for p in self.players]
-        self.teams = [MatchTeam.from_dict(**t) for t in self.teams]
-        self.roundResults = (
-            [MatchRoundResults.from_dict(**r) for r in self.roundResults]
-            if self.roundResults is not None
-            else None
-        )

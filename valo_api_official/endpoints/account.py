@@ -1,3 +1,5 @@
+import msgspec
+
 from valo_api_official.endpoints_config import EndpointsConfig
 from valo_api_official.exceptions.valo_api_exception import ValoAPIException
 from valo_api_official.responses.account import AccountV1
@@ -46,17 +48,13 @@ def get_account_by_name(version: str, name: str, tag: str, **kwargs) -> AccountV
         tag=tag,
         **kwargs,
     )
-    response_data = response.json()
 
     if response.ok is False:
-        headers = dict(response.headers)
-        raise ValoAPIException(
-            ErrorResponse.from_dict(
-                headers=headers, **{"error": response_data["status"]}
-            )
-        )
+        error = msgspec.json.decode(response.content, type=ErrorResponse)
+        error.headers = dict(response.headers)
+        raise ValoAPIException(error)
 
-    return AccountV1.from_dict(**response_data)
+    return msgspec.json.decode(response.content, type=AccountV1)
 
 
 def get_account_by_puuid_v1(puuid: str, **kwargs) -> AccountV1:
@@ -97,14 +95,10 @@ def get_account_by_puuid(version: str, puuid: str, **kwargs) -> AccountV1:
         puuid=puuid,
         **kwargs,
     )
-    response_data = response.json()
 
     if response.ok is False:
-        headers = dict(response.headers)
-        raise ValoAPIException(
-            ErrorResponse.from_dict(
-                headers=headers, **{"error": response_data["status"]}
-            )
-        )
+        error = msgspec.json.decode(response.content, type=ErrorResponse)
+        error.headers = dict(response.headers)
+        raise ValoAPIException(error)
 
-    return AccountV1.from_dict(**response_data)
+    return msgspec.json.decode(response.content, type=AccountV1)
