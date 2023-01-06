@@ -7,7 +7,6 @@ class MatchInfo(Struct):
     matchId: str
     mapId: str
     gameVersion: str
-    gameLengthMillis: int
     gameStartMillis: int
     isCompleted: bool
     customGameName: str
@@ -16,6 +15,7 @@ class MatchInfo(Struct):
     seasonId: str
     queueId: Optional[str] = None
     provisioningFlowID: Optional[str] = None
+    gameLengthMillis: Optional[int] = None
 
 
 class PlayerAbilityCasts(Struct):
