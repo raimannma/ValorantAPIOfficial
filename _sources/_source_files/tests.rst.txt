@@ -1,0 +1,19 @@
+tests package
+=============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   tests.unit
+
+Module contents
+---------------
+
+.. automodule:: tests
+   :autosummary:
+   :members:
+   :undoc-members:
+   :show-inheritance:
