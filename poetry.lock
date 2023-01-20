@@ -1440,14 +1440,14 @@ test = ["cython", "html5lib", "pytest (>=4.6)", "typed_ast"]
 
 [[package]]
 name = "sphinx-autodoc-typehints"
-version = "1.21.1"
+version = "1.21.5"
 description = "Type hints (PEP 484) support for the Sphinx autodoc extension"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "sphinx_autodoc_typehints-1.21.1-py3-none-any.whl", hash = "sha256:75454c09ffcfb22bb8151ef6d0a6031975cdb0b70498b06abaee751c04d9371d"},
-    {file = "sphinx_autodoc_typehints-1.21.1.tar.gz", hash = "sha256:bb4293eeb009ece3e0a2fea5070728e34c6165fdb25d830635b4d7fc13d94640"},
+    {file = "sphinx_autodoc_typehints-1.21.5-py3-none-any.whl", hash = "sha256:6e92f9697a64a09782266eb7e17afd6b54833cd698ba65f4d7916d87b33ade7e"},
+    {file = "sphinx_autodoc_typehints-1.21.5.tar.gz", hash = "sha256:72ea273cf49c00c4b87432e1ad23d002a785bdf0ed49c034fdd6b4c0888f0c52"},
 ]
 
 [package.dependencies]
@@ -1802,4 +1802,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "c04ff6d329c614b10edf3997b2b7609a7bc80bb424f13054a1f251d6ccd43de7"
+content-hash = "ea0ac90369011b77f6e6986d2e224224f50ae8167ddd4937132da62e23003e54"
