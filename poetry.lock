@@ -1166,14 +1166,14 @@ tblib = "*"
 
 [[package]]
 name = "pytest-split"
-version = "0.8.0"
+version = "0.8.1"
 description = "Pytest plugin which splits the test suite to equally sized sub suites based on test execution time."
 category = "dev"
 optional = false
 python-versions = ">=3.7.1,<4.0"
 files = [
-    {file = "pytest-split-0.8.0.tar.gz", hash = "sha256:8571a3f60ca8656c698ed86b0a3212bb9e79586ecb201daef9988c336ff0e6ff"},
-    {file = "pytest_split-0.8.0-py3-none-any.whl", hash = "sha256:2e06b8b1ab7ceb19d0b001548271abaf91d12415a8687086cf40581c555d309f"},
+    {file = "pytest_split-0.8.1-py3-none-any.whl", hash = "sha256:74b110ea091bd147cc1c5f9665a59506e5cedfa66f96a89fb03e4ab447c2c168"},
+    {file = "pytest_split-0.8.1.tar.gz", hash = "sha256:2d88bd3dc528689a7a3f58fc12ea165c3aa62e90795e420dfad920afe5612d6d"},
 ]
 
 [package.dependencies]
@@ -1888,4 +1888,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "24e93f637cdf0ff8169752eeb342f3c6e00cd078d72ec58d552ae850e15bf246"
+content-hash = "8cd634709455d84dfa0451dc889eb7350c1f8d15c3cfa4f310feae121943d6f5"
