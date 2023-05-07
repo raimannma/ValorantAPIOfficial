@@ -41,11 +41,12 @@ class MatchPlayers(Struct):
     tagLine: str
     teamId: str
     partyId: str
-    characterId: str
-    stats: PlayerStats
     competitiveTier: int
     playerCard: str
     playerTitle: str
+    isObserver: Optional[bool] = None
+    characterId: Optional[str] = None
+    stats: Optional[PlayerStats] = None
 
 
 class MatchTeam(Struct):
