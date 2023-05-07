@@ -1712,14 +1712,14 @@ files = [
 
 [[package]]
 name = "tomlkit"
-version = "0.11.7"
+version = "0.11.8"
 description = "Style preserving TOML library"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "tomlkit-0.11.7-py3-none-any.whl", hash = "sha256:5325463a7da2ef0c6bbfefb62a3dc883aebe679984709aee32a317907d0a8d3c"},
-    {file = "tomlkit-0.11.7.tar.gz", hash = "sha256:f392ef70ad87a672f02519f99967d28a4d3047133e2d1df936511465fbb3791d"},
+    {file = "tomlkit-0.11.8-py3-none-any.whl", hash = "sha256:8c726c4c202bdb148667835f68d68780b9a003a9ec34167b6c673b38eff2a171"},
+    {file = "tomlkit-0.11.8.tar.gz", hash = "sha256:9330fc7faa1db67b541b28e62018c17d20be733177d290a13b24c62d1614e0c3"},
 ]
 
 [[package]]
@@ -1888,4 +1888,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "32b5b246e3d62c41a9fe6bf087a38119923bfe6f5406925624f1e340cbf0af4b"
+content-hash = "8496aa259a109debae4fc9e8d5b935bce2153227a3b0ffcf377e0516885d3c49"
