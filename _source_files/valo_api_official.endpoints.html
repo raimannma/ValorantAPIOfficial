@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>valo_api_official.endpoints package &mdash; Valorant API Wrapper 1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=0b546569"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="valo_api_official.exceptions package" href="valo_api_official.exceptions.html" />
+    <link rel="prev" title="Valorant API Wrapper" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Valorant API Wrapper
+          </a>
+              <div class="version">
+                1.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Python Packages</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">valo_api_official.endpoints package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-valo_api_official.endpoints.account">valo_api_official.endpoints.account module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.account.get_account_by_name_v1"><code class="docutils literal notranslate"><span class="pre">get_account_by_name_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.account.get_account_by_name"><code class="docutils literal notranslate"><span class="pre">get_account_by_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.account.get_account_by_puuid_v1"><code class="docutils literal notranslate"><span class="pre">get_account_by_puuid_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.account.get_account_by_puuid"><code class="docutils literal notranslate"><span class="pre">get_account_by_puuid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-valo_api_official.endpoints.active_shards">valo_api_official.endpoints.active_shards module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.active_shards.get_active_shards_v1"><code class="docutils literal notranslate"><span class="pre">get_active_shards_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.active_shards.get_active_shards"><code class="docutils literal notranslate"><span class="pre">get_active_shards()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-valo_api_official.endpoints.content">valo_api_official.endpoints.content module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.content.get_content_v1"><code class="docutils literal notranslate"><span class="pre">get_content_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.content.get_content"><code class="docutils literal notranslate"><span class="pre">get_content()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-valo_api_official.endpoints.leaderboard">valo_api_official.endpoints.leaderboard module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.leaderboard.get_leaderboard_v1"><code class="docutils literal notranslate"><span class="pre">get_leaderboard_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.leaderboard.get_leaderboard"><code class="docutils literal notranslate"><span class="pre">get_leaderboard()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-valo_api_official.endpoints.match_details">valo_api_official.endpoints.match_details module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.match_details.get_match_details_v1"><code class="docutils literal notranslate"><span class="pre">get_match_details_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.match_details.get_match_details"><code class="docutils literal notranslate"><span class="pre">get_match_details()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-valo_api_official.endpoints.match_history">valo_api_official.endpoints.match_history module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.match_history.get_match_history_v1"><code class="docutils literal notranslate"><span class="pre">get_match_history_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.match_history.get_match_history"><code class="docutils literal notranslate"><span class="pre">get_match_history()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-valo_api_official.endpoints.recent_matches">valo_api_official.endpoints.recent_matches module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.recent_matches.get_recent_matches_v1"><code class="docutils literal notranslate"><span class="pre">get_recent_matches_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.recent_matches.get_recent_matches"><code class="docutils literal notranslate"><span class="pre">get_recent_matches()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-valo_api_official.endpoints.status">valo_api_official.endpoints.status module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.status.get_status_v1"><code class="docutils literal notranslate"><span class="pre">get_status_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.status.get_status"><code class="docutils literal notranslate"><span class="pre">get_status()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-valo_api_official.endpoints">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_account_by_name_v1"><code class="docutils literal notranslate"><span class="pre">get_account_by_name_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_account_by_name"><code class="docutils literal notranslate"><span class="pre">get_account_by_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_account_by_puuid_v1"><code class="docutils literal notranslate"><span class="pre">get_account_by_puuid_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_account_by_puuid"><code class="docutils literal notranslate"><span class="pre">get_account_by_puuid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_active_shards_v1"><code class="docutils literal notranslate"><span class="pre">get_active_shards_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_active_shards"><code class="docutils literal notranslate"><span class="pre">get_active_shards()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_content_v1"><code class="docutils literal notranslate"><span class="pre">get_content_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_content"><code class="docutils literal notranslate"><span class="pre">get_content()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_leaderboard_v1"><code class="docutils literal notranslate"><span class="pre">get_leaderboard_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_leaderboard"><code class="docutils literal notranslate"><span class="pre">get_leaderboard()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_match_details_v1"><code class="docutils literal notranslate"><span class="pre">get_match_details_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_match_details"><code class="docutils literal notranslate"><span class="pre">get_match_details()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_match_history_v1"><code class="docutils literal notranslate"><span class="pre">get_match_history_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_match_history"><code class="docutils literal notranslate"><span class="pre">get_match_history()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_recent_matches_v1"><code class="docutils literal notranslate"><span class="pre">get_recent_matches_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_recent_matches"><code class="docutils literal notranslate"><span class="pre">get_recent_matches()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_status_v1"><code class="docutils literal notranslate"><span class="pre">get_status_v1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valo_api_official.endpoints.get_status"><code class="docutils literal notranslate"><span class="pre">get_status()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="valo_api_official.exceptions.html">valo_api_official.exceptions package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valo_api_official.responses.html">valo_api_official.responses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valo_api_official.utils.html">valo_api_official.utils package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Valorant API Wrapper</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">valo_api_official.endpoints package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_source_files/valo_api_official.endpoints.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="valo-api-official-endpoints-package">
+<h1>valo_api_official.endpoints package<a class="headerlink" href="#valo-api-official-endpoints-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-valo_api_official.endpoints.account">
+<span id="valo-api-official-endpoints-account-module"></span><h2>valo_api_official.endpoints.account module<a class="headerlink" href="#module-valo_api_official.endpoints.account" title="Permalink to this heading"></a></h2>
+<p><strong>Functions:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.account.get_account_by_name_v1" title="valo_api_official.endpoints.account.get_account_by_name_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account_by_name_v1</span></code></a>(name, tag, **kwargs)</p></td>
+<td><p>Get the account details for a player using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.account.get_account_by_name" title="valo_api_official.endpoints.account.get_account_by_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account_by_name</span></code></a>(version, name, tag, **kwargs)</p></td>
+<td><p>Get the account details for a player using a specific version of the endpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.account.get_account_by_puuid_v1" title="valo_api_official.endpoints.account.get_account_by_puuid_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account_by_puuid_v1</span></code></a>(puuid, **kwargs)</p></td>
+<td><p>Get the account details for a player using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.account.get_account_by_puuid" title="valo_api_official.endpoints.account.get_account_by_puuid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account_by_puuid</span></code></a>(version, puuid, **kwargs)</p></td>
+<td><p>Get the account details for a player using a specific version of the endpoint.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.account.get_account_by_name_v1">
+<span class="sig-name descname"><span class="pre">get_account_by_name_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.account.get_account_by_name_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the account details for a player using version 1 of the endpoint.</p>
+<p>This is the same as
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_account_details_by_name(version=&quot;v1&quot;,</span> <span class="pre">name=name,</span> <span class="pre">tag=tag,</span> <span class="pre">**kwargs)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The name of the player to get the account details for.</p></li>
+<li><p><strong>tag</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The tag of the player to get the account details for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Account details fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.account.AccountV1" title="valo_api_official.responses.account.AccountV1">AccountV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.account.get_account_by_name">
+<span class="sig-name descname"><span class="pre">get_account_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.account.get_account_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Get the account details for a player using a specific version of the endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The name of the player to get the account details for.</p></li>
+<li><p><strong>tag</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The tag of the player to get the account details for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Account details fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.account.AccountV1" title="valo_api_official.responses.account.AccountV1">AccountV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.account.get_account_by_puuid_v1">
+<span class="sig-name descname"><span class="pre">get_account_by_puuid_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">puuid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.account.get_account_by_puuid_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the account details for a player using version 1 of the endpoint.</p>
+<p>This is the same as
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_account_details_by_puuid(version=&quot;v1&quot;,</span> <span class="pre">puuid=puuid,</span> <span class="pre">**kwargs)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>puuid</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The PUUID of the player to get the account details for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Account details fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.account.AccountV1" title="valo_api_official.responses.account.AccountV1">AccountV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.account.get_account_by_puuid">
+<span class="sig-name descname"><span class="pre">get_account_by_puuid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">puuid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.account.get_account_by_puuid" title="Permalink to this definition"></a></dt>
+<dd><p>Get the account details for a player using a specific version of the endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>puuid</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The PUUID of the player to get the account details for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Account details fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.account.AccountV1" title="valo_api_official.responses.account.AccountV1">AccountV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-valo_api_official.endpoints.active_shards">
+<span id="valo-api-official-endpoints-active-shards-module"></span><h2>valo_api_official.endpoints.active_shards module<a class="headerlink" href="#module-valo_api_official.endpoints.active_shards" title="Permalink to this heading"></a></h2>
+<p><strong>Functions:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.active_shards.get_active_shards_v1" title="valo_api_official.endpoints.active_shards.get_active_shards_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_active_shards_v1</span></code></a>(puuid, **kwargs)</p></td>
+<td><p>Get the active shards for a player using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.active_shards.get_active_shards" title="valo_api_official.endpoints.active_shards.get_active_shards"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_active_shards</span></code></a>(version, puuid, **kwargs)</p></td>
+<td><p>Get the active shards for a player using a specific version of the endpoint.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.active_shards.get_active_shards_v1">
+<span class="sig-name descname"><span class="pre">get_active_shards_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">puuid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.active_shards.get_active_shards_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the active shards for a player using version 1 of the endpoint.</p>
+<p>This is the same as
+<a class="reference internal" href="#valo_api_official.endpoints.active_shards.get_active_shards" title="valo_api_official.endpoints.active_shards.get_active_shards"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_active_shards(version=&quot;v1&quot;,</span> <span class="pre">puuid=puuid,</span> <span class="pre">**kwargs)</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>puuid</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The PUUID of the player to get the active shards for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Active Shards fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.active_shards.ActiveShardsV1" title="valo_api_official.responses.active_shards.ActiveShardsV1">ActiveShardsV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.active_shards.get_active_shards">
+<span class="sig-name descname"><span class="pre">get_active_shards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">puuid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.active_shards.get_active_shards" title="Permalink to this definition"></a></dt>
+<dd><p>Get the active shards for a player using a specific version of the endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>puuid</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The PUUID of the player to get the active shards for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Active Shards fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.active_shards.ActiveShardsV1" title="valo_api_official.responses.active_shards.ActiveShardsV1">ActiveShardsV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-valo_api_official.endpoints.content">
+<span id="valo-api-official-endpoints-content-module"></span><h2>valo_api_official.endpoints.content module<a class="headerlink" href="#module-valo_api_official.endpoints.content" title="Permalink to this heading"></a></h2>
+<p><strong>Functions:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.content.get_content_v1" title="valo_api_official.endpoints.content.get_content_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_content_v1</span></code></a>([locale])</p></td>
+<td><p>Get the content for a specific locale using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.content.get_content" title="valo_api_official.endpoints.content.get_content"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_content</span></code></a>(version[, locale])</p></td>
+<td><p>Get the content for a specific locale using a specific version of the endpoint.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.content.get_content_v1">
+<span class="sig-name descname"><span class="pre">get_content_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.content.get_content_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the content for a specific locale using version 1 of the endpoint.</p>
+<p>This is the same as
+<a class="reference internal" href="#valo_api_official.endpoints.content.get_content" title="valo_api_official.endpoints.content.get_content"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_content(version=&quot;v1&quot;,</span> <span class="pre">locale=locale,</span> <span class="pre">**kwargs)</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>locale</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The locale to get the content for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Content fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.content.ContentV1" title="valo_api_official.responses.content.ContentV1">ContentV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.content.get_content">
+<span class="sig-name descname"><span class="pre">get_content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.content.get_content" title="Permalink to this definition"></a></dt>
+<dd><p>Get the content for a specific locale using a specific version of the endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>locale</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The locale to get the content for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Content fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.content.ContentV1" title="valo_api_official.responses.content.ContentV1">ContentV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-valo_api_official.endpoints.leaderboard">
+<span id="valo-api-official-endpoints-leaderboard-module"></span><h2>valo_api_official.endpoints.leaderboard module<a class="headerlink" href="#module-valo_api_official.endpoints.leaderboard" title="Permalink to this heading"></a></h2>
+<p><strong>Functions:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.leaderboard.get_leaderboard_v1" title="valo_api_official.endpoints.leaderboard.get_leaderboard_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leaderboard_v1</span></code></a>(region[, act_id, start, size])</p></td>
+<td><p>Get the leaderboard for a region using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.leaderboard.get_leaderboard" title="valo_api_official.endpoints.leaderboard.get_leaderboard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leaderboard</span></code></a>(version, region[, act_id, ...])</p></td>
+<td><p>Get the leaderboard for a region using a specific version of the endpoint.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.leaderboard.get_leaderboard_v1">
+<span class="sig-name descname"><span class="pre">get_leaderboard_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">act_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.leaderboard.get_leaderboard_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the leaderboard for a region using version 1 of the endpoint.</p>
+<p>This is the same as
+<a class="reference internal" href="#valo_api_official.endpoints.leaderboard.get_leaderboard" title="valo_api_official.endpoints.leaderboard.get_leaderboard"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_leaderboard(version=&quot;v1&quot;,</span> <span class="pre">region=region,</span> <span class="pre">puuid=puuid,</span> <span class="pre">name=name,</span> <span class="pre">tag=tag,</span> <span class="pre">**kwargs)</span></code></a></p>
+<p>You can also filter by puuid or name and tag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the leaderboard for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>act_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The season ID to get the leaderboard for.</p></li>
+<li><p><strong>start</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – The start index of the leaderboard. Can be used for pagination.</p></li>
+<li><p><strong>size</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – The size of the leaderboard.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The leaderboard for the region.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.leaderboard.LeaderboardV1" title="valo_api_official.responses.leaderboard.LeaderboardV1">LeaderboardV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.leaderboard.get_leaderboard">
+<span class="sig-name descname"><span class="pre">get_leaderboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">act_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.leaderboard.get_leaderboard" title="Permalink to this definition"></a></dt>
+<dd><p>Get the leaderboard for a region using a specific version of the endpoint.</p>
+<p>You can also filter by puuid or name and tag if you are using v1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint. One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the leaderboard for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>act_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The act ID to get the leaderboard for.</p></li>
+<li><p><strong>start</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – The start index of the leaderboard. Can be used for pagination.</p></li>
+<li><p><strong>size</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – The size of the leaderboard.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The leaderboard for the region.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.leaderboard.LeaderboardV1" title="valo_api_official.responses.leaderboard.LeaderboardV1">LeaderboardV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-valo_api_official.endpoints.match_details">
+<span id="valo-api-official-endpoints-match-details-module"></span><h2>valo_api_official.endpoints.match_details module<a class="headerlink" href="#module-valo_api_official.endpoints.match_details" title="Permalink to this heading"></a></h2>
+<p><strong>Functions:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.match_details.get_match_details_v1" title="valo_api_official.endpoints.match_details.get_match_details_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_match_details_v1</span></code></a>(region, match_id, **kwargs)</p></td>
+<td><p>Get the match details for a match using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.match_details.get_match_details" title="valo_api_official.endpoints.match_details.get_match_details"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_match_details</span></code></a>(version, region, match_id, ...)</p></td>
+<td><p>Get the match details for a match using a specific version of the endpoint.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.match_details.get_match_details_v1">
+<span class="sig-name descname"><span class="pre">get_match_details_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.match_details.get_match_details_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the match details for a match using version 1 of the endpoint.</p>
+<p>This is the same as
+<a class="reference internal" href="#valo_api_official.endpoints.match_details.get_match_details" title="valo_api_official.endpoints.match_details.get_match_details"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_match_details(version=&quot;v1&quot;,</span> <span class="pre">matchId=matchId,</span> <span class="pre">**kwargs)</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the leaderboard for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>match_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The match ID to get the details for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Match details fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.match_details.MatchDetailsV1" title="valo_api_official.responses.match_details.MatchDetailsV1">MatchDetailsV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.match_details.get_match_details">
+<span class="sig-name descname"><span class="pre">get_match_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.match_details.get_match_details" title="Permalink to this definition"></a></dt>
+<dd><p>Get the match details for a match using a specific version of the endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the leaderboard for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>match_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The match ID to get the details for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Match details fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.match_details.MatchDetailsV1" title="valo_api_official.responses.match_details.MatchDetailsV1">MatchDetailsV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-valo_api_official.endpoints.match_history">
+<span id="valo-api-official-endpoints-match-history-module"></span><h2>valo_api_official.endpoints.match_history module<a class="headerlink" href="#module-valo_api_official.endpoints.match_history" title="Permalink to this heading"></a></h2>
+<p><strong>Functions:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.match_history.get_match_history_v1" title="valo_api_official.endpoints.match_history.get_match_history_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_match_history_v1</span></code></a>(region, puuid, **kwargs)</p></td>
+<td><p>Get the match history for a player using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.match_history.get_match_history" title="valo_api_official.endpoints.match_history.get_match_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_match_history</span></code></a>(version, region, puuid, ...)</p></td>
+<td><p>Get the match history for a player using a specific version of the endpoint.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.match_history.get_match_history_v1">
+<span class="sig-name descname"><span class="pre">get_match_history_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">puuid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.match_history.get_match_history_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the match history for a player using version 1 of the endpoint.</p>
+<p>This is the same as <a class="reference internal" href="#valo_api_official.endpoints.match_history.get_match_history" title="valo_api_official.endpoints.match_history.get_match_history"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_match_history(version=&quot;v1&quot;,</span> <span class="pre">region=region,</span> <span class="pre">puuid=puuid,</span> <span class="pre">size=size,</span>
+<span class="pre">game_mode=game_mode,</span> <span class="pre">**kwargs)</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region of the player.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>puuid</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The puuid of the player.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Match History for a player by puuid.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.match_history.MatchHistoryV1" title="valo_api_official.responses.match_history.MatchHistoryV1">MatchHistoryV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.match_history.get_match_history">
+<span class="sig-name descname"><span class="pre">get_match_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">puuid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.match_history.get_match_history" title="Permalink to this definition"></a></dt>
+<dd><p>Get the match history for a player using a specific version of the endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region of the player.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>puuid</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The puuid of the player.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Match History for a player by puuid.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.match_history.MatchHistoryV1" title="valo_api_official.responses.match_history.MatchHistoryV1">MatchHistoryV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-valo_api_official.endpoints.recent_matches">
+<span id="valo-api-official-endpoints-recent-matches-module"></span><h2>valo_api_official.endpoints.recent_matches module<a class="headerlink" href="#module-valo_api_official.endpoints.recent_matches" title="Permalink to this heading"></a></h2>
+<p><strong>Functions:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.recent_matches.get_recent_matches_v1" title="valo_api_official.endpoints.recent_matches.get_recent_matches_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_recent_matches_v1</span></code></a>(region, queue, **kwargs)</p></td>
+<td><p>Get recent matches for a match queue using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.recent_matches.get_recent_matches" title="valo_api_official.endpoints.recent_matches.get_recent_matches"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_recent_matches</span></code></a>(version, region, queue, ...)</p></td>
+<td><p>Get recent matches for a match queue.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.recent_matches.get_recent_matches_v1">
+<span class="sig-name descname"><span class="pre">get_recent_matches_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.recent_matches.get_recent_matches_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get recent matches for a match queue using version 1 of the endpoint.</p>
+<p>This is the same as
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_recent_matches(version=&quot;v1&quot;,</span> <span class="pre">queue=queue,</span> <span class="pre">**kwargs)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the recent matches for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>queue</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The queue to get recent matches for.
+One of the following:
+competitive, unrated, spikerush, tournamentmode, deathmatch, onefa, ggteam</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Recent matches fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.recent_matches.RecentMatchesV1" title="valo_api_official.responses.recent_matches.RecentMatchesV1">RecentMatchesV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.recent_matches.get_recent_matches">
+<span class="sig-name descname"><span class="pre">get_recent_matches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.recent_matches.get_recent_matches" title="Permalink to this definition"></a></dt>
+<dd><p>Get recent matches for a match queue.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the recent matches for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>queue</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The queue to get recent matches for.
+One of the following:
+competitive, unrated, spikerush, tournamentmode, deathmatch, onefa, ggteam</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Recent matches fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.recent_matches.RecentMatchesV1" title="valo_api_official.responses.recent_matches.RecentMatchesV1">RecentMatchesV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-valo_api_official.endpoints.status">
+<span id="valo-api-official-endpoints-status-module"></span><h2>valo_api_official.endpoints.status module<a class="headerlink" href="#module-valo_api_official.endpoints.status" title="Permalink to this heading"></a></h2>
+<p><strong>Functions:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.status.get_status_v1" title="valo_api_official.endpoints.status.get_status_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_status_v1</span></code></a>(region, **kwargs)</p></td>
+<td><p>Get the status for a specific region using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.status.get_status" title="valo_api_official.endpoints.status.get_status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_status</span></code></a>(version, region, **kwargs)</p></td>
+<td><p>Get the status for a specific region.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.status.get_status_v1">
+<span class="sig-name descname"><span class="pre">get_status_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.status.get_status_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the status for a specific region using version 1 of the endpoint.</p>
+<p>This is the same as
+<a class="reference internal" href="#valo_api_official.endpoints.status.get_status" title="valo_api_official.endpoints.status.get_status"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_status(version=&quot;v1&quot;,</span> <span class="pre">region=region,</span> <span class="pre">**kwargs)</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the status for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Status fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.status.StatusV1" title="valo_api_official.responses.status.StatusV1">StatusV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.status.get_status">
+<span class="sig-name descname"><span class="pre">get_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.status.get_status" title="Permalink to this definition"></a></dt>
+<dd><p>Get the status for a specific region.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the status for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Status fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.status.StatusV1" title="valo_api_official.responses.status.StatusV1">StatusV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-valo_api_official.endpoints">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-valo_api_official.endpoints" title="Permalink to this heading"></a></h2>
+<p><strong>Functions:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_account_by_name_v1" title="valo_api_official.endpoints.get_account_by_name_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account_by_name_v1</span></code></a>(name, tag, **kwargs)</p></td>
+<td><p>Get the account details for a player using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_account_by_name" title="valo_api_official.endpoints.get_account_by_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account_by_name</span></code></a>(version, name, tag, **kwargs)</p></td>
+<td><p>Get the account details for a player using a specific version of the endpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_account_by_puuid_v1" title="valo_api_official.endpoints.get_account_by_puuid_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account_by_puuid_v1</span></code></a>(puuid, **kwargs)</p></td>
+<td><p>Get the account details for a player using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_account_by_puuid" title="valo_api_official.endpoints.get_account_by_puuid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account_by_puuid</span></code></a>(version, puuid, **kwargs)</p></td>
+<td><p>Get the account details for a player using a specific version of the endpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_active_shards_v1" title="valo_api_official.endpoints.get_active_shards_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_active_shards_v1</span></code></a>(puuid, **kwargs)</p></td>
+<td><p>Get the active shards for a player using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_active_shards" title="valo_api_official.endpoints.get_active_shards"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_active_shards</span></code></a>(version, puuid, **kwargs)</p></td>
+<td><p>Get the active shards for a player using a specific version of the endpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_content_v1" title="valo_api_official.endpoints.get_content_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_content_v1</span></code></a>([locale])</p></td>
+<td><p>Get the content for a specific locale using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_content" title="valo_api_official.endpoints.get_content"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_content</span></code></a>(version[, locale])</p></td>
+<td><p>Get the content for a specific locale using a specific version of the endpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_leaderboard_v1" title="valo_api_official.endpoints.get_leaderboard_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leaderboard_v1</span></code></a>(region[, act_id, start, size])</p></td>
+<td><p>Get the leaderboard for a region using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_leaderboard" title="valo_api_official.endpoints.get_leaderboard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leaderboard</span></code></a>(version, region[, act_id, ...])</p></td>
+<td><p>Get the leaderboard for a region using a specific version of the endpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_match_details_v1" title="valo_api_official.endpoints.get_match_details_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_match_details_v1</span></code></a>(region, match_id, **kwargs)</p></td>
+<td><p>Get the match details for a match using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_match_details" title="valo_api_official.endpoints.get_match_details"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_match_details</span></code></a>(version, region, match_id, ...)</p></td>
+<td><p>Get the match details for a match using a specific version of the endpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_match_history_v1" title="valo_api_official.endpoints.get_match_history_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_match_history_v1</span></code></a>(region, puuid, **kwargs)</p></td>
+<td><p>Get the match history for a player using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_match_history" title="valo_api_official.endpoints.get_match_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_match_history</span></code></a>(version, region, puuid, ...)</p></td>
+<td><p>Get the match history for a player using a specific version of the endpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_recent_matches_v1" title="valo_api_official.endpoints.get_recent_matches_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_recent_matches_v1</span></code></a>(region, queue, **kwargs)</p></td>
+<td><p>Get recent matches for a match queue using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_recent_matches" title="valo_api_official.endpoints.get_recent_matches"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_recent_matches</span></code></a>(version, region, queue, ...)</p></td>
+<td><p>Get recent matches for a match queue.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_status_v1" title="valo_api_official.endpoints.get_status_v1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_status_v1</span></code></a>(region, **kwargs)</p></td>
+<td><p>Get the status for a specific region using version 1 of the endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#valo_api_official.endpoints.get_status" title="valo_api_official.endpoints.get_status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_status</span></code></a>(version, region, **kwargs)</p></td>
+<td><p>Get the status for a specific region.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_account_by_name_v1">
+<span class="sig-name descname"><span class="pre">get_account_by_name_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_account_by_name_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the account details for a player using version 1 of the endpoint.</p>
+<p>This is the same as
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_account_details_by_name(version=&quot;v1&quot;,</span> <span class="pre">name=name,</span> <span class="pre">tag=tag,</span> <span class="pre">**kwargs)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The name of the player to get the account details for.</p></li>
+<li><p><strong>tag</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The tag of the player to get the account details for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Account details fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.account.AccountV1" title="valo_api_official.responses.account.AccountV1">AccountV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_account_by_name">
+<span class="sig-name descname"><span class="pre">get_account_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_account_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Get the account details for a player using a specific version of the endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The name of the player to get the account details for.</p></li>
+<li><p><strong>tag</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The tag of the player to get the account details for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Account details fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.account.AccountV1" title="valo_api_official.responses.account.AccountV1">AccountV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_account_by_puuid_v1">
+<span class="sig-name descname"><span class="pre">get_account_by_puuid_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">puuid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_account_by_puuid_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the account details for a player using version 1 of the endpoint.</p>
+<p>This is the same as
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_account_details_by_puuid(version=&quot;v1&quot;,</span> <span class="pre">puuid=puuid,</span> <span class="pre">**kwargs)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>puuid</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The PUUID of the player to get the account details for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Account details fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.account.AccountV1" title="valo_api_official.responses.account.AccountV1">AccountV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_account_by_puuid">
+<span class="sig-name descname"><span class="pre">get_account_by_puuid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">puuid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_account_by_puuid" title="Permalink to this definition"></a></dt>
+<dd><p>Get the account details for a player using a specific version of the endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>puuid</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The PUUID of the player to get the account details for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Account details fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.account.AccountV1" title="valo_api_official.responses.account.AccountV1">AccountV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_active_shards_v1">
+<span class="sig-name descname"><span class="pre">get_active_shards_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">puuid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_active_shards_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the active shards for a player using version 1 of the endpoint.</p>
+<p>This is the same as
+<a class="reference internal" href="#valo_api_official.endpoints.get_active_shards" title="valo_api_official.endpoints.get_active_shards"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_active_shards(version=&quot;v1&quot;,</span> <span class="pre">puuid=puuid,</span> <span class="pre">**kwargs)</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>puuid</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The PUUID of the player to get the active shards for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Active Shards fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.active_shards.ActiveShardsV1" title="valo_api_official.responses.active_shards.ActiveShardsV1">ActiveShardsV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_active_shards">
+<span class="sig-name descname"><span class="pre">get_active_shards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">puuid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_active_shards" title="Permalink to this definition"></a></dt>
+<dd><p>Get the active shards for a player using a specific version of the endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>puuid</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The PUUID of the player to get the active shards for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Active Shards fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.active_shards.ActiveShardsV1" title="valo_api_official.responses.active_shards.ActiveShardsV1">ActiveShardsV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_content_v1">
+<span class="sig-name descname"><span class="pre">get_content_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_content_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the content for a specific locale using version 1 of the endpoint.</p>
+<p>This is the same as
+<a class="reference internal" href="#valo_api_official.endpoints.get_content" title="valo_api_official.endpoints.get_content"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_content(version=&quot;v1&quot;,</span> <span class="pre">locale=locale,</span> <span class="pre">**kwargs)</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>locale</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The locale to get the content for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Content fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.content.ContentV1" title="valo_api_official.responses.content.ContentV1">ContentV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_content">
+<span class="sig-name descname"><span class="pre">get_content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_content" title="Permalink to this definition"></a></dt>
+<dd><p>Get the content for a specific locale using a specific version of the endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>locale</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The locale to get the content for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Content fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.content.ContentV1" title="valo_api_official.responses.content.ContentV1">ContentV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_leaderboard_v1">
+<span class="sig-name descname"><span class="pre">get_leaderboard_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">act_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_leaderboard_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the leaderboard for a region using version 1 of the endpoint.</p>
+<p>This is the same as
+<a class="reference internal" href="#valo_api_official.endpoints.get_leaderboard" title="valo_api_official.endpoints.get_leaderboard"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_leaderboard(version=&quot;v1&quot;,</span> <span class="pre">region=region,</span> <span class="pre">puuid=puuid,</span> <span class="pre">name=name,</span> <span class="pre">tag=tag,</span> <span class="pre">**kwargs)</span></code></a></p>
+<p>You can also filter by puuid or name and tag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the leaderboard for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>act_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The season ID to get the leaderboard for.</p></li>
+<li><p><strong>start</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – The start index of the leaderboard. Can be used for pagination.</p></li>
+<li><p><strong>size</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – The size of the leaderboard.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The leaderboard for the region.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.leaderboard.LeaderboardV1" title="valo_api_official.responses.leaderboard.LeaderboardV1">LeaderboardV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_leaderboard">
+<span class="sig-name descname"><span class="pre">get_leaderboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">act_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_leaderboard" title="Permalink to this definition"></a></dt>
+<dd><p>Get the leaderboard for a region using a specific version of the endpoint.</p>
+<p>You can also filter by puuid or name and tag if you are using v1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint. One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the leaderboard for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>act_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The act ID to get the leaderboard for.</p></li>
+<li><p><strong>start</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – The start index of the leaderboard. Can be used for pagination.</p></li>
+<li><p><strong>size</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – The size of the leaderboard.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The leaderboard for the region.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.leaderboard.LeaderboardV1" title="valo_api_official.responses.leaderboard.LeaderboardV1">LeaderboardV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_match_details_v1">
+<span class="sig-name descname"><span class="pre">get_match_details_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_match_details_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the match details for a match using version 1 of the endpoint.</p>
+<p>This is the same as
+<a class="reference internal" href="#valo_api_official.endpoints.get_match_details" title="valo_api_official.endpoints.get_match_details"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_match_details(version=&quot;v1&quot;,</span> <span class="pre">matchId=matchId,</span> <span class="pre">**kwargs)</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the leaderboard for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>match_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The match ID to get the details for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Match details fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.match_details.MatchDetailsV1" title="valo_api_official.responses.match_details.MatchDetailsV1">MatchDetailsV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_match_details">
+<span class="sig-name descname"><span class="pre">get_match_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_match_details" title="Permalink to this definition"></a></dt>
+<dd><p>Get the match details for a match using a specific version of the endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the leaderboard for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>match_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The match ID to get the details for.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Match details fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.match_details.MatchDetailsV1" title="valo_api_official.responses.match_details.MatchDetailsV1">MatchDetailsV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_match_history_v1">
+<span class="sig-name descname"><span class="pre">get_match_history_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">puuid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_match_history_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the match history for a player using version 1 of the endpoint.</p>
+<p>This is the same as <a class="reference internal" href="#valo_api_official.endpoints.get_match_history" title="valo_api_official.endpoints.get_match_history"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_match_history(version=&quot;v1&quot;,</span> <span class="pre">region=region,</span> <span class="pre">puuid=puuid,</span> <span class="pre">size=size,</span>
+<span class="pre">game_mode=game_mode,</span> <span class="pre">**kwargs)</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region of the player.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>puuid</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The puuid of the player.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Match History for a player by puuid.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.match_history.MatchHistoryV1" title="valo_api_official.responses.match_history.MatchHistoryV1">MatchHistoryV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_match_history">
+<span class="sig-name descname"><span class="pre">get_match_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">puuid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_match_history" title="Permalink to this definition"></a></dt>
+<dd><p>Get the match history for a player using a specific version of the endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region of the player.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>puuid</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The puuid of the player.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Match History for a player by puuid.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.match_history.MatchHistoryV1" title="valo_api_official.responses.match_history.MatchHistoryV1">MatchHistoryV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_recent_matches_v1">
+<span class="sig-name descname"><span class="pre">get_recent_matches_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_recent_matches_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get recent matches for a match queue using version 1 of the endpoint.</p>
+<p>This is the same as
+<a class="reference internal" href="#valo_api_official.endpoints.get_match_details" title="valo_api_official.endpoints.get_match_details"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_recent_matches(version=&quot;v1&quot;,</span> <span class="pre">queue=queue,</span> <span class="pre">**kwargs)</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the recent matches for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>queue</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The queue to get recent matches for.
+One of the following:
+competitive, unrated, spikerush, tournamentmode, deathmatch, onefa, ggteam</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Recent matches fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.recent_matches.RecentMatchesV1" title="valo_api_official.responses.recent_matches.RecentMatchesV1">RecentMatchesV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_recent_matches">
+<span class="sig-name descname"><span class="pre">get_recent_matches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_recent_matches" title="Permalink to this definition"></a></dt>
+<dd><p>Get recent matches for a match queue.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the recent matches for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>queue</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The queue to get recent matches for.
+One of the following:
+competitive, unrated, spikerush, tournamentmode, deathmatch, onefa, ggteam</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Recent matches fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.recent_matches.RecentMatchesV1" title="valo_api_official.responses.recent_matches.RecentMatchesV1">RecentMatchesV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_status_v1">
+<span class="sig-name descname"><span class="pre">get_status_v1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_status_v1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the status for a specific region using version 1 of the endpoint.</p>
+<p>This is the same as
+<a class="reference internal" href="#valo_api_official.endpoints.get_status" title="valo_api_official.endpoints.get_status"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_status(version=&quot;v1&quot;,</span> <span class="pre">region=region,</span> <span class="pre">**kwargs)</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the status for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Status fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.status.StatusV1" title="valo_api_official.responses.status.StatusV1">StatusV1</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="valo_api_official.endpoints.get_status">
+<span class="sig-name descname"><span class="pre">get_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#valo_api_official.endpoints.get_status" title="Permalink to this definition"></a></dt>
+<dd><p>Get the status for a specific region.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The version of the endpoint to use.
+One of the following:
+v1 (Version 1)</p></li>
+<li><p><strong>region</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The region to get the status for.
+One of the following:
+eu (Europe), na (North America), ap (Asia Pacific), kr (Korea), latam (Latin America), br (Brazil)</p></li>
+<li><p><strong>**kwargs</strong> – Any additional arguments to pass to the endpoint.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Status fetched from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="valo_api_official.responses.html#valo_api_official.responses.status.StatusV1" title="valo_api_official.responses.status.StatusV1">StatusV1</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="valo_api_official.exceptions.html#valo_api_official.exceptions.valo_api_exception.ValoAPIException" title="valo_api_official.exceptions.valo_api_exception.ValoAPIException"><strong>ValoAPIException</strong></a> – If the request failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Valorant API Wrapper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="valo_api_official.exceptions.html" class="btn btn-neutral float-right" title="valo_api_official.exceptions package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Valorant API Wrappr.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

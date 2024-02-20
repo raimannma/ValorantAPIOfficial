@@ -1,0 +1,32 @@
+valo\_api\_official.exceptions package
+======================================
+
+Submodules
+----------
+
+valo\_api\_official.exceptions.rate\_limit module
+-------------------------------------------------
+
+.. automodule:: valo_api_official.exceptions.rate_limit
+   :autosummary:
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+valo\_api\_official.exceptions.valo\_api\_exception module
+----------------------------------------------------------
+
+.. automodule:: valo_api_official.exceptions.valo_api_exception
+   :autosummary:
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: valo_api_official.exceptions
+   :autosummary:
+   :members:
+   :undoc-members:
+   :show-inheritance:
