@@ -575,13 +575,13 @@ typing = ["typing-extensions (>=4.8)"]
 
 [[package]]
 name = "hypothesis"
-version = "6.98.9"
+version = "6.98.16"
 description = "A library for property-based testing"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "hypothesis-6.98.9-py3-none-any.whl", hash = "sha256:b161d8b7c92ce065ae6e6b9fc644ea6aeb9c7cfe027e2655e4f9ada9d50b0d62"},
-    {file = "hypothesis-6.98.9.tar.gz", hash = "sha256:25a6ef40512893618118ba6b6d18d13611ba756e07fa1f0bdd78c64baa6ec874"},
+    {file = "hypothesis-6.98.16-py3-none-any.whl", hash = "sha256:2acd87b145ab5ef63e24e3ba7503e0976aabc8ea306d040d5b1e4adeb7992052"},
+    {file = "hypothesis-6.98.16.tar.gz", hash = "sha256:78646ac6a87cc24d716006d68f4aeb49d0e03726947191bf19db4c2eb51be44c"},
 ]
 
 [package.dependencies]
@@ -1890,4 +1890,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "88d77a637e645fc9befff92af970021479682c27fd6846a604a3a6f323d220fd"
+content-hash = "71edb184e60741d886544a624f46cbcc0ae051b3b3c2566cc18fc403f7fc96b8"
